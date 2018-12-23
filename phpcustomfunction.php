@@ -75,3 +75,10 @@ class Format{
   $text = $text.".....";
   return $text;
  }
+
+//////////////////
+This is the basic rule to hide index.php from the URL. Put this in your root .htaccess file. mod_rewrite must be enabled with PHP and this will work for the PHP version higher than 5.2.6.
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php?/$1 [L]
